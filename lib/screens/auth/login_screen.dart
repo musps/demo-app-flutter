@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../providers/theme.dart';
+import '../../widgets/button_widget.dart';
 
 class LoginScreen extends StatefulWidget {
   final String title = 'Login';
@@ -12,6 +13,7 @@ class _LoginScreen extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       appBar: AppBar(
         title: Text(widget.title),
       ),
@@ -38,27 +40,21 @@ class _LoginScreen extends State<LoginScreen> {
                       decoration: InputDecoration(labelText: 'Password'),
                       obscureText: true,
                     ),
-                    MaterialButton(
-                      minWidth: double.infinity,
-                      onPressed: () => Navigator.pushNamed(context, '/forgot_password'),
-                      height: 46,
-                      child: Text('Forgot password?', style: new TextStyle(fontSize: 18)),
+                    ButtonWidget(
+                      text: 'Forgot password?',
+                      onPressed: () => Navigator.pushNamed(context, '/auth/forgot_password'),
                     ),
                     Spacer(),
-                    MaterialButton(
-                      minWidth: double.infinity,
-                      onPressed: () => Navigator.pushReplacementNamed(context, '/in/profile'),
-                      child: Text('Login', style: new TextStyle(fontSize: 18)),
-                      height: 46,
+                    ButtonWidget(
+                      text: 'Login',
+                      onPressed: () => Navigator.pushNamed(context, '/in/profile'),
                       color: Theme.of(context).customerPrimaryColor,
                       textColor: Colors.white,
                     ),
-                    MaterialButton(
-                      minWidth: double.infinity,
-                      height: 46,
-                      onPressed: () => Navigator.pushNamed(context, '/auth/register'),
-                      child: Text('Register', style: new TextStyle(fontSize: 18)),
-                    )
+                    ButtonWidget(
+                      text: 'Register',
+                      onPressed: () => Navigator.pushNamed(context, '/auth/login'),
+                    ),
                   ],
                 ),
               )
