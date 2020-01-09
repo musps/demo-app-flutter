@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
-import 'screens/homeScreen.dart';
-import 'screens/auth/forgot_password_screen.dart';
-import 'screens/auth/register_screen.dart';
-import 'screens/auth/login_screen.dart';
-import 'screens/in/profile_screen.dart';
+import 'package:provider/provider.dart';
+import 'package:testapp/screens/homeScreen.dart';
+import 'package:testapp/screens/auth/forgot_password_screen.dart';
+import 'package:testapp/screens/auth/register_screen.dart';
+import 'package:testapp/screens/auth/login_screen.dart';
+import 'package:testapp/screens/in/profile_screen.dart';
+import 'package:testapp/providers/user_provider.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  Provider.debugCheckInvalidValueType = null;
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    var app = MaterialApp(
       title: 'Flutter layout demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -26,5 +31,13 @@ class MyApp extends StatelessWidget {
         '/in/profile': (context) => ProfileScreen(),
       },
     );
+
+    return MultiProvider(
+      providers: [
+        Provider<UserProvider>(create: (_) => UserProvider()),
+      ],
+      child: app,
+    );
   }
 }
+

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:testapp/providers/user_provider.dart';
 
 class HomeScreen extends StatefulWidget {
   final String title = 'Home screen';
@@ -10,8 +12,15 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreen extends State<HomeScreen> {
   @override
   void initState() {
-    Future.microtask(() {
-      Navigator.pushReplacementNamed(context, '/auth/login');
+    Future.microtask(() async {
+      print('_HomeScreen');
+      var isLogged = await Provider.of<UserProvider>(context, listen: false).initialize();
+
+      if (!isLogged) {
+        Navigator.pushReplacementNamed(context, '/auth/login');
+      } else {
+        Navigator.pushReplacementNamed(context, '/in/profile');
+      }
     });
   }
 
@@ -25,4 +34,3 @@ class _HomeScreen extends State<HomeScreen> {
     );
   }
 }
-

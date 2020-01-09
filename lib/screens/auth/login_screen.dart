@@ -1,9 +1,7 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:testapp/models/user_model.dart';
+import 'package:provider/provider.dart';
 import 'package:testapp/providers/theme.dart';
+import 'package:testapp/providers/user_provider.dart';
 import 'package:testapp/widgets/button_widget.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -53,6 +51,13 @@ class _LoginScreen extends State<LoginScreen> {
   final password = TextEditingController();
   bool _globalError = false;
 
+  @override
+  void initState() {
+    Future.microtask(() {
+      //Provider.of<Counter>(context, listen: false).increment();
+    });
+  }
+
   void onPressLogin() {
     if (!_formKey.currentState.validate()) {
       return null;
@@ -64,11 +69,17 @@ class _LoginScreen extends State<LoginScreen> {
     new Future.delayed(new Duration(seconds: 1), () async {
       Navigator.pop(context);
 
-      if (email.text == 'root' && password.text == 'root') {
-        User user = User(email: email.text, password: password.text);
-        SharedPreferences prefs = await SharedPreferences.getInstance();
-        await prefs.setString('user', jsonEncode(user.toJSON()));
+      bool isLogged = await Provider.of<UserProvider>(context, listen: false).login(
+        email: email.text,
+        password: password.text
+      );
+
+      if (isLogged) {
         Navigator.pushNamed(context, '/in/profile');
+      } else {
+        setState(() {
+          _globalError = true;
+        });
       }
     });
   }

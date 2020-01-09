@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../menuScreen.dart';
-import '../../components/bottomMenu.dart';
+import 'package:testapp/widgets/bottom_menu.dart';
+import 'package:testapp/widgets/user_menu_widget.dart';
 
 class ProfileScreen extends StatefulWidget {
   final String title = 'Profile screen';
@@ -16,7 +16,7 @@ class _ProfileScreen extends State<ProfileScreen> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      drawer: Drawer(child: MenuScreen()),
+      drawer: Drawer(child: UserMenuWidget()),
       floatingActionButton: new FloatingActionButton(
         onPressed: () => settingModalBottomSheet(context),
         child: new Icon(Icons.add),
