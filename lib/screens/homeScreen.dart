@@ -19,7 +19,7 @@ class _HomeScreen extends State<HomeScreen> {
       if (!isLogged) {
         Navigator.pushReplacementNamed(context, '/auth/login');
       } else {
-        Navigator.pushReplacementNamed(context, '/in/profile');
+        Navigator.pushReplacementNamed(context, '/in/degrees_conversion');
       }
     });
   }

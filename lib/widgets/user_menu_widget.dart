@@ -16,16 +16,27 @@ class _UserMenuWidget extends State<UserMenuWidget> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: ListView(
-        children: [
-          ListTile(
-            title: Text('Disconnect'),
-            onTap: () async {
-              await Provider.of<UserProvider>(context, listen: false).disconnect();
-              Navigator.pushReplacementNamed(context, '/');
-            },
-          ),
-        ]
+      body: Consumer<UserProvider>(
+        builder: (context, u, child) => ListView(
+          children: [
+            ListTile(title: Text('Welcome ${u.user.fullname}')),
+            ListTile(
+              title: Text('Calculator'),
+              onTap: () => Navigator.pushReplacementNamed(context, '/in/calculator'),
+            ),
+            ListTile(
+              title: Text('Degrees Conversion'),
+              onTap: () => Navigator.pushReplacementNamed(context, '/in/degrees_conversion'),
+            ),
+            ListTile(
+              title: Text('Disconnect'),
+              onTap: () async {
+                await Provider.of<UserProvider>(context, listen: false).disconnect();
+                Navigator.pushReplacementNamed(context, '/');
+              },
+            ),
+          ]
+        )
       )
     );
   }

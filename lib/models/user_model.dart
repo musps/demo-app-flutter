@@ -3,6 +3,7 @@ class User {
   String password;
   String firstname;
   String lastname;
+  String get fullname => '$lastname $firstname';
 
   User({this.email, this.password, this.firstname, this.lastname});
 
