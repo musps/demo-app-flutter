@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
       providers: [
         Provider<UserProvider>(create: (_) => UserProvider()),
       ],
-      child: app,
+      child: app
     );
   }
 }
