@@ -5,7 +5,12 @@ class User {
   String lastname;
   String get fullname => '$lastname $firstname';
 
-  User({this.email, this.password, this.firstname, this.lastname});
+  User({
+    this.email,
+    this.password,
+    this.firstname,
+    this.lastname,
+  });
 
   User.fromJson(Map<String, dynamic> json) {
     email = json['email'] ?? '';
