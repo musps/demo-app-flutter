@@ -6,10 +6,10 @@ import 'package:http/http.dart' as http;
 class PokemonsProvider with ChangeNotifier {
   static final String endpoint = 'https://api.pokemontcg.io/v1/cards';
   List<Pokemon> items = [
-    Pokemon(id: '1', name: 'name'),
-    Pokemon(id: '3', name: 'name'),
-    Pokemon(id: '4', name: 'name'),
-    Pokemon(id: '5', name: 'name'),
+    Pokemon(id: '1', name: 'name', imageUrl: 'https://images.pokemontcg.io/dp6/90.png'),
+    Pokemon(id: '1', name: 'name', imageUrl: 'https://images.pokemontcg.io/dp6/90.png'),
+    Pokemon(id: '1', name: 'name', imageUrl: 'https://images.pokemontcg.io/dp6/90.png'),
+    Pokemon(id: '1', name: 'name', imageUrl: 'https://images.pokemontcg.io/dp6/90.png'),
   ];
 
   Future<void> fetchAll() async {

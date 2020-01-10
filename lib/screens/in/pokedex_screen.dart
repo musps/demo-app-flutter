@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:testapp/providers/pokemons_provider.dart';
-import 'package:testapp/widgets/bottom_menu.dart';
-import 'package:testapp/widgets/user_menu_widget.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 class PokedexScreen extends StatefulWidget {
   final String title = 'Pokedex';
@@ -30,7 +29,16 @@ class _PokedexScreen extends State<PokedexScreen> {
           return ListView.builder(
             itemCount: pokemons.items.length,
             itemBuilder: (BuildContext ctxt, int index) {
-              return new Text(pokemons.items[index].name);
+              return Padding(
+                padding: const EdgeInsets.only(left: 8,  right: 8, top: 15, bottom: 10),
+                child: ListTile(
+                  title: Text(pokemons.items[index].name),
+                  leading: FadeInImage.memoryNetwork(
+                    image: pokemons.items[index].imageUrl,
+                    placeholder: kTransparentImage
+                  )
+                ),
+              );
             }
           );
         }
