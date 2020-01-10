@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:testapp/providers/pokemons_provider.dart';
 import 'package:testapp/screens/homeScreen.dart';
 import 'package:testapp/screens/auth/forgot_password_screen.dart';
 import 'package:testapp/screens/auth/register_screen.dart';
 import 'package:testapp/screens/auth/login_screen.dart';
 import 'package:testapp/screens/in/calculator_screen.dart';
 import 'package:testapp/screens/in/degrees_conversion_screen.dart';
+import 'package:testapp/screens/in/pokedex_screen.dart';
 import 'package:testapp/screens/in/profile_screen.dart';
 import 'package:testapp/providers/user_provider.dart';
 
@@ -33,12 +35,14 @@ class MyApp extends StatelessWidget {
         '/in/profile': (context) => ProfileScreen(),
         '/in/calculator': (context) => CalculatorScreen(),
         '/in/degrees_conversion': (context) => DegreesConversionScreen(),
+        '/in/pokedex': (context) => PokedexScreen(),
       },
     );
 
     return MultiProvider(
       providers: [
         Provider<UserProvider>(create: (_) => UserProvider()),
+        Provider<PokemonsProvider>(create: (_) => PokemonsProvider()),
       ],
       child: app
     );

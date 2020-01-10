@@ -19,6 +19,10 @@ class _UserMenuWidget extends State<UserMenuWidget> {
       body: ListView(
         children: [
           ListTile(
+            title: Text('Pokedex'),
+            onTap: () => Navigator.pushReplacementNamed(context, '/in/pokedex'),
+          ),
+          ListTile(
             title: Text('Calculator'),
             onTap: () => Navigator.pushReplacementNamed(context, '/in/calculator'),
           ),
