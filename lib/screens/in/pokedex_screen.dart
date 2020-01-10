@@ -12,6 +12,7 @@ class PokedexScreen extends StatefulWidget {
 
 class _PokedexScreen extends State<PokedexScreen> {
   @override
+
   void initState() {
     Future.microtask(() async {
       Provider.of<PokemonsProvider>(context, listen: false).fetchAll();
@@ -20,26 +21,25 @@ class _PokedexScreen extends State<PokedexScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var pokemons = Provider.of<PokemonsProvider>(context, listen: true);
+  
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Consumer<PokemonsProvider>(
-        builder: (context, pokemons, child) {
-          return ListView.builder(
-            itemCount: pokemons.items.length,
-            itemBuilder: (BuildContext ctxt, int index) {
-              return Padding(
-                padding: const EdgeInsets.only(left: 8,  right: 8, top: 15, bottom: 10),
-                child: ListTile(
-                  title: Text(pokemons.items[index].name),
-                  leading: FadeInImage.memoryNetwork(
-                    image: pokemons.items[index].imageUrl,
-                    placeholder: kTransparentImage
-                  )
-                ),
-              );
-            }
+      body: ListView.builder(
+        itemCount: pokemons.items.length,
+        itemBuilder: (BuildContext ctxt, int index) {
+          return Padding(
+            padding: const EdgeInsets.only(left: 8,  right: 8, top: 15, bottom: 10),
+            child: ListTile(
+              onTap: () => print('ok'),
+              title: Text(pokemons.items[index].name),
+              leading: FadeInImage.memoryNetwork(
+                image: pokemons.items[index].imageUrl,
+                placeholder: kTransparentImage
+              )
+            ),
           );
         }
       )

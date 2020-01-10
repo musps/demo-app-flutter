@@ -41,8 +41,8 @@ class MyApp extends StatelessWidget {
 
     return MultiProvider(
       providers: [
-        Provider<UserProvider>(create: (_) => UserProvider()),
-        Provider<PokemonsProvider>(create: (_) => PokemonsProvider()),
+        ChangeNotifierProvider<UserProvider>(create: (context) => UserProvider()),
+        ChangeNotifierProvider<PokemonsProvider>(create: (context) => PokemonsProvider()),
       ],
       child: app
     );
