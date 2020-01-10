@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:testapp/providers/theme.dart';
 import 'package:testapp/providers/user_provider.dart';
@@ -75,7 +76,7 @@ class _LoginScreen extends State<LoginScreen> {
       );
 
       if (isLogged) {
-        Navigator.pushNamed(context, '/in/profile');
+        Navigator.pushNamed(context, '/in');
       } else {
         setState(() {
           _globalError = true;
@@ -86,11 +87,12 @@ class _LoginScreen extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // Update status bar text color.
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarBrightness: Brightness.light,
+    ));
+
     return Scaffold(
-      resizeToAvoidBottomPadding: false,
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: Container(
         child: Column(
           children: [
@@ -98,7 +100,9 @@ class _LoginScreen extends State<LoginScreen> {
               flex: 1,
               child: Container(
                 color: Colors.red,
-                child: Center(child: Text('%APP LOGO%')),
+                child: SizedBox.expand(
+                  child: Image.asset('assets/images/lake.jpg', fit: BoxFit.fill)
+                ),
               ),
             ),
             Expanded(

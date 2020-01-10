@@ -21,7 +21,7 @@ class _PokedexScreen extends State<PokedexScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var pokemons = Provider.of<PokemonsProvider>(context, listen: true);
+    var pokemons = Provider.of<PokemonsProvider>(context);
   
     return Scaffold(
       appBar: AppBar(

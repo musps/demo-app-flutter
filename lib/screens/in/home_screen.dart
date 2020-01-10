@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:testapp/widgets/bottom_menu.dart';
 import 'package:testapp/widgets/user_menu_widget.dart';
 
-class ProfileScreen extends StatefulWidget {
-  final String title = 'Profile screen';
+class InHomeScreen extends StatefulWidget {
+  final String title = 'Dashboard';
 
-  ProfileScreen({Key key}) : super(key: key);
-  _ProfileScreen createState() => _ProfileScreen();
+  InHomeScreen({Key key}) : super(key: key);
+  _InHomeScreen createState() => _InHomeScreen();
 }
 
-class _ProfileScreen extends State<ProfileScreen> {
+class _InHomeScreen extends State<InHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -20,15 +20,15 @@ class _UserMenuWidget extends State<UserMenuWidget> {
         children: [
           ListTile(
             title: Text('Pokedex'),
-            onTap: () => Navigator.pushReplacementNamed(context, '/in/pokedex'),
+            onTap: () => Navigator.popAndPushNamed(context, '/in/pokedex'),
           ),
           ListTile(
             title: Text('Calculator'),
-            onTap: () => Navigator.pushReplacementNamed(context, '/in/calculator'),
+            onTap: () => Navigator.popAndPushNamed(context, '/in/calculator'),
           ),
           ListTile(
             title: Text('Degrees Conversion'),
-            onTap: () => Navigator.pushReplacementNamed(context, '/in/degrees_conversion'),
+            onTap: () => Navigator.popAndPushNamed(context, '/in/degrees_conversion'),
           ),
           ListTile(
             title: Text('Disconnect'),

@@ -13,13 +13,12 @@ class _HomeScreen extends State<HomeScreen> {
   @override
   void initState() {
     Future.microtask(() async {
-      print('_HomeScreen');
       var isLogged = await Provider.of<UserProvider>(context, listen: false).initialize();
 
       if (!isLogged) {
         Navigator.pushReplacementNamed(context, '/auth/login');
       } else {
-        Navigator.pushReplacementNamed(context, '/in/pokedex');
+        Navigator.pushReplacementNamed(context, '/in');
       }
     });
   }

@@ -40,7 +40,6 @@ class _DegreesConversionScreen extends State<DegreesConversionScreen> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      drawer: Drawer(child: UserMenuWidget()),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ListView(

@@ -7,8 +7,8 @@ import 'package:testapp/screens/auth/register_screen.dart';
 import 'package:testapp/screens/auth/login_screen.dart';
 import 'package:testapp/screens/in/calculator_screen.dart';
 import 'package:testapp/screens/in/degrees_conversion_screen.dart';
+import 'package:testapp/screens/in/home_screen.dart';
 import 'package:testapp/screens/in/pokedex_screen.dart';
-import 'package:testapp/screens/in/profile_screen.dart';
 import 'package:testapp/providers/user_provider.dart';
 
 void main() {
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         '/auth/login': (context) => LoginScreen(),
         '/auth/register': (context) => RegisterScreen(),
         '/auth/forgot_password': (context) => ForgotPasswordScreen(),
-        '/in/profile': (context) => ProfileScreen(),
+        '/in': (context) => InHomeScreen(),
         '/in/calculator': (context) => CalculatorScreen(),
         '/in/degrees_conversion': (context) => DegreesConversionScreen(),
         '/in/pokedex': (context) => PokedexScreen(),
