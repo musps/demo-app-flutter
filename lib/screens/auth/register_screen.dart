@@ -15,7 +15,7 @@ class _RegisterScreen extends State<RegisterScreen> {
         title: Text(widget.title),
       ),
       body: Container(
-        child: Text('content'),
+        child: Center(child: Text('Feature not available yet!')),
       )
     );
   }

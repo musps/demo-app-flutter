@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
-  final String title = 'Forgot password? ';
+  final String title = 'Forgot password?';
 
   ForgotPasswordScreen({Key key}) : super(key: key);
   _ForgotPasswordScreen createState() => _ForgotPasswordScreen();
@@ -15,7 +15,7 @@ class _ForgotPasswordScreen extends State<ForgotPasswordScreen> {
         title: Text(widget.title),
       ),
       body: Container(
-        child: Text('content'),
+        child: Center(child: Text('Feature not available yet!')),
       )
     );
   }

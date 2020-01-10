@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:testapp/mock_data.dart';
 import 'package:testapp/providers/pokemons_provider.dart';
 import 'package:testapp/screens/homeScreen.dart';
 import 'package:testapp/screens/auth/forgot_password_screen.dart';
@@ -7,7 +8,6 @@ import 'package:testapp/screens/auth/register_screen.dart';
 import 'package:testapp/screens/auth/login_screen.dart';
 import 'package:testapp/screens/in/calculator_screen.dart';
 import 'package:testapp/screens/in/degrees_conversion_screen.dart';
-import 'package:testapp/screens/in/home_screen.dart';
 import 'package:testapp/screens/in/pokedex_screen.dart';
 import 'package:testapp/providers/user_provider.dart';
 
@@ -32,16 +32,15 @@ class MyApp extends StatelessWidget {
         '/auth/login': (context) => LoginScreen(),
         '/auth/register': (context) => RegisterScreen(),
         '/auth/forgot_password': (context) => ForgotPasswordScreen(),
-        '/in': (context) => InHomeScreen(),
+        '/in': (context) => PokedexScreen(),
         '/in/calculator': (context) => CalculatorScreen(),
         '/in/degrees_conversion': (context) => DegreesConversionScreen(),
-        '/in/pokedex': (context) => PokedexScreen(),
       },
     );
 
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<UserProvider>(create: (context) => UserProvider()),
+        ChangeNotifierProvider<UserProvider>(create: (context) => UserProvider(users: mock_users)),
         ChangeNotifierProvider<PokemonsProvider>(create: (context) => PokemonsProvider()),
       ],
       child: app

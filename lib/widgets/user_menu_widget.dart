@@ -13,32 +13,41 @@ class _UserMenuWidget extends State<UserMenuWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: ListView(
-        children: [
+        // Important: Remove any padding from the ListView.
+        padding: EdgeInsets.zero,
+        children: <Widget>[
+          DrawerHeader(
+            child: Text('Welcome'),
+            decoration: BoxDecoration(
+              color: Colors.blue,
+            ),
+          ),
           ListTile(
             title: Text('Pokedex'),
+            leading: Icon(Icons.list),
             onTap: () => Navigator.popAndPushNamed(context, '/in/pokedex'),
           ),
           ListTile(
             title: Text('Calculator'),
+            leading: Icon(Icons.view_list),
             onTap: () => Navigator.popAndPushNamed(context, '/in/calculator'),
           ),
           ListTile(
             title: Text('Degrees Conversion'),
+            leading: Icon(Icons.data_usage),
             onTap: () => Navigator.popAndPushNamed(context, '/in/degrees_conversion'),
           ),
           ListTile(
             title: Text('Disconnect'),
+            leading: Icon(Icons.exit_to_app),
             onTap: () async {
               await Provider.of<UserProvider>(context, listen: false).disconnect();
               Navigator.pushReplacementNamed(context, '/');
             },
           ),
-        ]
-      )
+        ],
+      ),
     );
   }
 }

@@ -11,10 +11,9 @@ class UserProvider with ChangeNotifier {
   User user;
 
   // List of available users.
-  List<User> users = [
-    User(email: 'sercan', password: 'root', firstname: 'Sercan', lastname: 'YILDIZ'),
-    User(email: 'root', password: 'root', firstname: 'root', lastname: 'root'),
-  ];
+  List<User> users = [];
+
+  UserProvider({this.users});
 
   Future<bool> initialize() async {
       SharedPreferences prefs = await SharedPreferences.getInstance();
